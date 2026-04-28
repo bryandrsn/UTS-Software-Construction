@@ -6,13 +6,13 @@ Project ini adalah implementasi arsitektur **Microservices** berbasis **Node.js*
 
 Proyek ini terbagi menjadi 4 komponen utama yang saling berkomunikasi melalui protokol HTTP:
 
-1.  **API Gateway (Port 8000)**: Pintu masuk tunggal (entry point) yang menangani routing, proxy, dan agregasi data menggunakan Axios.
-2.  **Service User (Port 3001)**: Mengelola data pengguna/warga yang melakukan pelaporan.
-3.  **Service Media (Port 3002)**: Mengelola penyimpanan metadata dan akses file bukti foto kerusakan.
+1.  **API Gateway (Port 3000)**: Entry point yang menangani routing, proxy, dan agregasi data menggunakan Axios.
+2.  **Service User (Port 3001)**: Mengelola data pengguna yang melakukan pelaporan.
+3.  **Service Media (Port 3002)**: Mengelola penyimpanan file media bukti foto kerusakan.
 4.  **Service Report (Port 3003)**: Core service yang menangani CRUD pelaporan jalan rusak, lokasi, dan status perbaikan.
 
 ### Alur Kerja Agregasi Data
-Saat melakukan request `GET /api/reports/:id`, API Gateway akan secara paralel mengambil data dari ketiga service lainnya dan menyatukannya dalam satu respons JSON yang utuh.
+Saat melakukan request `GET /reports/:id`, API Gateway akan secara paralel mengambil data dari ketiga service lainnya dan menyatukannya dalam satu respons JSON yang utuh.
 
 ---
 
