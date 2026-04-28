@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    "User",
+  const Report = sequelize.define(
+    "Report",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -8,32 +8,27 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         allowNull: false,
       },
-      name: {
+      street_name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: true,
       },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      role: {
+      status: {
         type: DataTypes.ENUM,
-        values: ["admin", "user"],
+        values: ["reported", "repaired"],
+        defaultValue: "reported",
         allowNull: false,
-        defaultValue: "user",
       },
-      avatar: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      reporter_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
-      profession: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      media_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       createdAt: {
         field: "created_at",
@@ -47,9 +42,9 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "users",
+      tableName: "reports",
       timestamps: true,
     },
   );
-  return User;
+  return Report;
 };

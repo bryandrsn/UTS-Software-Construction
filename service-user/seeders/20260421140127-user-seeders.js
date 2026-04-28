@@ -15,10 +15,10 @@ module.exports = {
         updated_at: new Date(),
       },
       {
-        name: "jidan",
+        name: "anderson",
         profession: "student",
-        role: "student",
-        email: "jidan@gmail.com",
+        role: "user",
+        email: "anderson@gmail.com",
         password: await bcrypt.hash("12345678", 10),
         created_at: new Date(),
         updated_at: new Date(),
